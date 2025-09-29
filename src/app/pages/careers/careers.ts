@@ -13,7 +13,7 @@ export class Careers {
   selectedFile: File | null = null;
   fileName: string = 'Seu currículo';
   fileSize: string = '';
-  apiUrl = 'https://karvan.com.br/api/sendmail'; 
+  apiUrl = 'https://www.karvan.com.br/api/sendmail'; 
 
   constructor(private http: HttpClient) { }
 

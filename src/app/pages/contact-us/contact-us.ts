@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./contact-us.css']
 })
 export class ContactUs {
-  apiUrl = 'https://karvan.com.br/api/sendmail'; 
+  apiUrl = 'https://www.karvan.com.br/api/sendmail'; 
 
   constructor(private http: HttpClient) {}
 
