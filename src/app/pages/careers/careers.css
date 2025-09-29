@@ -1,0 +1,249 @@
+/* Importando fontes do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&family=Roboto:wght@400;700&display=swap');
+
+.careers-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px 20px;
+  font-family: 'Roboto', sans-serif;
+  background-color: #fff;
+}
+
+.main-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: 1px;
+    margin-top: 100px;
+  color: #04024e;
+  margin-bottom: 60px;
+  text-align: center;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.main-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 2px;
+  background-color: #04024e;
+}
+
+.careers-form-wrapper {
+  width: 100%;
+  max-width: 550px; /* Um pouco mais largo para o formulário */
+}
+
+.careers-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.careers-form input[type="text"],
+.careers-form input[type="email"],
+.careers-form textarea {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+  background-color: transparent;
+  transition: border-color 0.3s ease;
+}
+
+.careers-form input[type="text"]:focus,
+.careers-form input[type="email"]:focus,
+.careers-form textarea:focus {
+  outline: none;
+  border-bottom-color: #04024e;
+}
+
+.careers-form ::placeholder {
+  color: #a0aec0;
+}
+
+.careers-form textarea {
+  resize: vertical;
+}
+
+/* Estilização customizada para o campo de anexo de arquivo */
+.file-input-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+  cursor: pointer;
+  font-size: 16px;
+  color: #a0aec0;
+}
+
+.select-button {
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 6px 18px;
+  font-size: 14px;
+  color: #333;
+  background-color: #fff;
+  transition: all 0.2s ease;
+}
+
+.file-input-label:hover .select-button {
+  background-color: #f0f0f0;
+  border-color: #a0aec0;
+}
+
+.file-input {
+  /* Esconde o input de arquivo original, mas o mantém funcional */
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+}
+
+/* Botão de Enviar */
+.submit-button {
+  background-color: #04024e;
+  color: #fff;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  align-self: center; /* Centraliza o botão */
+  width: 100%;
+  max-width: 300px;
+  margin-top: 20px;
+}
+
+.submit-button:hover {
+  background-color: #080863;
+  transform: translateY(-2px);
+}
+
+.file-info-display {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #04024e; /* Linha mais forte para indicar sucesso */
+  padding: 8px 0;
+}
+
+.file-details {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.file-icon {
+  color: #04024e;
+  flex-shrink: 0; /* Impede que o ícone seja espremido */
+}
+
+.file-metadata {
+  display: flex;
+  flex-direction: column;
+}
+
+.file-name {
+  font-weight: bold;
+  color: #2d3748;
+  font-size: 15px;
+}
+
+.file-size {
+  font-size: 12px;
+  color: #718096;
+}
+
+.remove-button {
+  background: none;
+  border: none;
+  color: #E53E3E; /* Vermelho para indicar remoção */
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 5px;
+  transition: color 0.2s ease;
+}
+
+.remove-button:hover {
+  color: #c53030;
+}
+
+.file-info-display {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #04024e; /* Linha mais forte para indicar sucesso */
+  padding: 8px 0;
+}
+
+.file-details {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.file-icon {
+  color: #04024e;
+  flex-shrink: 0; /* Impede que o ícone seja espremido */
+}
+
+.file-metadata {
+  display: flex;
+  flex-direction: column;
+}
+
+.file-name {
+  font-weight: bold;
+  color: #2d3748;
+  font-size: 15px;
+}
+
+.file-size {
+  font-size: 12px;
+  color: #718096;
+}
+
+.remove-button {
+  background: none;
+  border: none;
+  color: #E53E3E; /* Vermelho para indicar remoção */
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 5px;
+  transition: color 0.2s ease;
+}
+
+.remove-button:hover {
+  color: #c53030;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  .careers-container {
+    padding: 60px 15px;
+  }
+  .submit-button {
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,40 @@
+<div class="footer">
+    <div class="footer-content">
+        <div class="footer-logo">
+            <img src="assets/karvan_logo.svg" alt="Karvan Auto-Peças">
+        </div>
+        <div class="footer-contact-info">
+            <span class="footer-contact-title">Contatos</span>
+            <div class="footer-contact-details">
+                <span>Telefone: 55 (11) 2406-9312</span>
+                <span>WhatsApp: 55 (11) 94398-1467</span>
+                <span>marcelo@jqkarvan.com.br</span>
+            </div>
+        </div>
+        <div class="footer-social-media">
+            <span class="footer-social-media-title">Redes Sociais</span>
+            <div class="footer-social-media-links">
+                <a href="https://www.facebook.com/Oficiakarvan/?locale=pt_BR" target="_blank" rel="noopener noreferrer">Facebook</a>
+                <a href="https://www.linkedin.com/company/karvanautopecas/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://www.instagram.com/jqkarvan/" target="_blank" rel="noopener noreferrer">Instagram</a>
+            </div>
+        </div>
+         <div class="footer-site-map">
+            <span class="footer-site-map-title">Mapa do Site</span>
+            <div class="footer-site-map-links">
+                @for (item of items; track $index) {
+                <a routerLink="{{item.link}}" (click)="onSelect(item.name)">{{item.label}}</a>
+                }
+            </div>
+        </div>
+        <div class="footer-infos">
+            <span>CNPJ: 65.538.142/0001-52</span>
+            <span>Avenida Tiradentes, 4133 Guarulhos, SP</span>
+        </div>
+    </div>
+
+    <div class="footer-copyright">
+        <hr class="footer-divider">
+        <p>&copy; {{ currentYear }} JQ Karvan Auto-Peças. Todos os direitos reservados.</p>
+    </div>
+</div>

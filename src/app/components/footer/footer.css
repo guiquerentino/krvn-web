@@ -1,0 +1,195 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #04024e;
+    color: white;
+}
+
+.footer .footer-content {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.footer .footer-logo img {
+    max-width: 160px;
+    height: auto;
+    margin-left: 40px;
+    margin-right: 200px;
+}
+
+.footer .footer-contact-info {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-right: 60px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.footer .footer-contact-title {
+    font-weight: 500;
+    margin-bottom: 8px;
+    font-size: 12px;
+}
+
+.footer .footer-contact-details {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.footer .footer-site-map {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-right: 60px;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.footer .footer-site-map-title {
+    font-weight: 500;
+    margin-bottom: 8px;
+    font-size: 12px;
+}
+
+.footer .footer-site-map a {
+    text-decoration: none;
+    color: white;
+    margin-bottom: 8px;
+    font-size: 12px;
+}
+
+.footer .footer-site-map-links {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(3, auto);
+    gap: 0 40px;
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.footer .footer-social-media {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-right: 60px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.footer .footer-social-media-title {
+    font-weight: 500;
+    margin-bottom: 8px;
+    font-size: 12px;
+}
+
+.footer .footer-social-media-links {
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.footer .footer-social-media-links a {
+    text-decoration: none;
+    color: white;
+    margin-bottom: 8px;
+    font-size: 12px;
+}
+
+.footer .footer-infos {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    margin-left: auto;
+    margin-right: 40px;
+    text-align: right;
+}
+
+.footer .footer-divider {
+    border-top: 0.5px solid white;
+    margin: 20px 0;
+    opacity: 0.2;
+}
+
+.footer .footer-copyright {
+    margin-top: 20px;
+    font-size: 12px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+}
+
+/* Telas Mobile */
+@media only screen and (max-width: 500px) {
+    .footer img {
+        display: none;
+    }
+
+    .footer .footer-content {
+        flex-wrap: wrap;
+        row-gap: 40px;
+    }
+
+    .footer .footer-social-media {
+        margin-left: 5px;
+    }
+
+    .footer .footer-site-map-links {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    .footer .footer-contact-info,
+    .footer .footer-social-media {
+        flex-basis: 50%;
+        margin-right: 0;
+    }
+
+    .footer .footer-site-map,
+    .footer .footer-infos {
+        flex-basis: 100%;
+        margin-right: 0;
+    }
+
+    .footer .footer-infos {
+        text-align: left;
+        margin-left: 0;
+    }
+
+}
+
+@media (min-width: 800px) and (max-width: 1060px) {
+    .footer .footer-logo img {
+        max-width: 120px;
+        margin-right: 25px;
+        margin-left: 0px;
+    }
+
+}
+
+@media (min-width: 500px) and (max-width: 800px) {
+.footer .footer-logo img {
+        display: none;
+    }
+
+    .footer .footer-content {
+        flex-wrap: wrap;
+        row-gap: 40px;
+    }
+
+    .footer .footer-site-map-links {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    .footer .footer-site-map {
+        margin-right: 0;
+    }
+}

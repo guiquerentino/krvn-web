@@ -1,0 +1,27 @@
+.whatsapp-fab {
+    position: fixed; /* Chave para o efeito flutuante */
+    bottom: 25px;
+    right: 25px;
+    z-index: 1000; /* Garante que fique acima de outros elementos */
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 60px;
+    height: 60px;
+    background-color: #25D366; /* Cor oficial do WhatsApp */
+    color: #FFFFFF;
+    border-radius: 50%; /* Deixa o botão redondo */
+    
+    font-size: 32px; /* Tamanho do ícone */
+    text-decoration: none;
+    
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.whatsapp-fab:hover {
+    transform: scale(1.1); /* Efeito de zoom ao passar o mouse */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}

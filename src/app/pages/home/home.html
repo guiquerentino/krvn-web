@@ -1,1 +1,111 @@
-<p>home works!</p>
+<div class="home-container">
+    <section class="main-container">
+        <div class="cta-message">
+            <h1 class="cta-title">
+                Peças de qualidade para você voltar à estrada sem atrasos.
+            </h1>
+            <p class="cta-subtitle">
+                Peças automotivas de confiança para motoristas e oficinas, com entrega rápida e preço justo.
+            </p>
+            <div class="cta-button-container">
+                <button class="cta-button" (click)="redirectToWhatsApp()">Contato via WhatsApp</button>
+                <span class="cta-button-subtitle">+30 anos de experiência no mercado de auto-peças</span>
+            </div>
+        </div>
+        <div class="home-carousel">
+            <app-carousel
+                [images]="['assets/carousel_1.png', 'assets/carousel_2.png', 'assets/carousel_3.png']"></app-carousel>
+        </div>
+    </section>
+
+    <app-brand-scroller></app-brand-scroller>
+
+    <section class="product-section">
+        <h2 class="section-title">Nossos Produtos em Destaque</h2>
+        <p class="section-subtitle">Encontre a peça certa para o seu veículo explorando nossas principais categorias de produtos.</p>
+        
+        <div class="product-header">
+            <div class="product-feature">
+                <ng-icon name="bootstrapGearFill" class="feature-icon"></ng-icon>
+                <div class="feature-text">
+                    <h3>Produtos de Qualidade</h3>
+                    <p>Peças confiáveis que duram mais</p>
+                </div>
+            </div>
+            <div class="product-feature">
+                <ng-icon name="bootstrapCurrencyDollar" class="feature-icon"></ng-icon>
+                <div class="feature-text">
+                    <h3>Menor Preço</h3>
+                    <p>Ofertas que cabem no seu bolso</p>
+                </div>
+            </div>
+            <div class="product-feature">
+                <ng-icon name="bootstrapBullseye" class="feature-icon"></ng-icon>
+                <div class="feature-text">
+                    <h3>Variedade Ampla</h3>
+                    <p>Peças para todos os modelos e marcas</p>
+                </div>
+            </div>
+        </div>
+        <div class="product-row">
+            <div class="product-item">
+                <img src="assets/amortecedor.png" alt="Amortecedor">
+                <span>Amortecedores</span>
+            </div>
+            <div class="product-item">
+                <img src="assets/disco_freio.png" alt="Disco freio">
+                <span>Discos de Freio</span>
+            </div>
+            <div class="product-item">
+                <img src="assets/kit_embreagem.png" alt="Kit de embreagem">
+                <span>Kit de Embreagem</span>
+            </div>
+            <div class="product-item">
+                <img src="assets/cabos_vela.png" alt="Cabos de vela">
+                <span>Cabos de Vela</span>
+            </div>
+            <div class="product-item">
+                <img src="assets/oleo_motor.png" alt="Óleo motor">
+                <span>Óleo de Motor</span>
+            </div>
+            <div class="product-item">
+                <img src="assets/filtros.png" alt="Filtros">
+                <span>Filtros</span>
+            </div>
+            <div class="product-item">
+                <img src="assets/kit_correia_dentada.png" alt="Kit correia dentada">
+                <span>Correia Dentada</span>
+            </div>
+            <div class="product-item">
+                <img src="assets/pastilhas_freio.png" alt="Pastilhas de freio">
+                <span>Pastilhas de Freio</span>
+            </div>
+            <div class="product-item">
+                <img src="assets/velas_ignicao.png" alt="Velas de ignição">
+                <span>Velas de Ignição</span>
+            </div>
+            <div class="product-item">
+                <img src="assets/bateria.png" alt="Baterias">
+                <span>Baterias</span>
+            </div>
+        </div>
+    </section>
+
+  <section class="address-container">
+    <h2 class="address-header">Localização e Horários</h2>
+    <div class="address-row">
+      <div class="address-info">
+        <h3>Endereço</h3>
+        <b>Av. Tiradentes, 4133 - Jardim Santa Edwirges<br>Guarulhos, SP CEP: 07196-000</b>
+        <h3>Horário de Funcionamento</h3>
+        <p><b>Segunda a Sexta:</b> das 08:00 às 18:00</p>
+        <p><b>Sábados e Feriados:</b> das 08:00 às 12:00</p>
+      </div>
+      <div class="address-map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3660.2287831150793!2d-46.51293312388688!3d-23.452210657592815!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce8ab6b833d46f%3A0xfb5d0fdedf8f40cf!2sAv.%20Tiradentes%2C%204133%20-%20Jardim%20Santa%20Edwirges%2C%20Guarulhos%20-%20SP%2C%2007196-000!5e0!3m2!1spt-BR!2sbr!4v1758819899173!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>
+</div>
+
+

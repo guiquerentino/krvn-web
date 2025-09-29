@@ -1,0 +1,20 @@
+<section class="scroller-container">
+  <div class="divider"></div>
+
+  <div class="logo-scroller">
+    <div class="scroller-track">
+      @for (brand of brands; track brand.alt) {
+        <div class="brand-logo">
+          <img [src]="brand.src" [alt]="brand.alt" />
+        </div>
+      }
+      @for (brand of brands; track brand.alt) {
+        <div class="brand-logo">
+          <img [src]="brand.src" [alt]="brand.alt" />
+        </div>
+      }
+    </div>
+  </div>
+
+  <div class="divider"></div>
+</section>

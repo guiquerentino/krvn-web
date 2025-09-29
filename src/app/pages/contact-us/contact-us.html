@@ -1,1 +1,35 @@
-<p>contact-us works!</p>
+<div class="contact-page-container">
+  <h1 class="main-title">CONTATO</h1>
+
+  <div class="contact-content-wrapper">
+    <div class="contact-info">
+      <div class="info-item">
+        <ng-icon name="bootstrapEnvelopeFill" class="info-icon"></ng-icon>
+        <span>marcelo@jqkarvan.com.br</span>
+      </div>
+      <a href="tel:+551124046100" class="info-item phone-button">
+        <ng-icon name="bootstrapTelephoneFill" class="info-icon phone-icon"></ng-icon>
+        <span>+55 (11) 2404-6100</span>
+      </a>
+      <div class="info-item">
+        <ng-icon name="bootstrapGeoAltFill" class="info-icon"></ng-icon>
+        <span>Guarulhos, Avenida Tiradentes, 4133</span>
+      </div>
+    </div>
+
+    <div class="contact-form-container">
+      <form class="contact-form">
+        <div class="form-group">
+          <input type="text" id="name" name="name" required placeholder="Seu Nome">
+        </div>
+        <div class="form-group">
+          <input type="email" id="email" name="email" required placeholder="Seu e-mail">
+        </div>
+        <div class="form-group">
+          <textarea id="message" name="message" rows="4" required placeholder="Sua mensagem"></textarea>
+        </div>
+        <button type="submit" class="submit-button">Enviar mensagem</button>
+      </form>
+    </div>
+  </div>
+</div>

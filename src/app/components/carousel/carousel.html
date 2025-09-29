@@ -1,0 +1,12 @@
+<div class="carousel">
+  <div class="carousel-wrapper">
+    @for (image of images; track $index) {
+      <img [src]="image" [class.active]="$index === currentIndex()" alt="carousel image" />
+    }
+  </div>
+  <div class="dots">
+    @for (image of images; track $index) {
+      <span [class.active]="$index === currentIndex()" (click)="goTo($index)"></span>
+    }
+  </div>
+</div>

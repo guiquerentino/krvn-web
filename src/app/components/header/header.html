@@ -1,0 +1,39 @@
+<div class="header">
+  <div class="header-info">
+    <div class="address-info">
+      <ng-icon name="bootstrapGeoAltFill" class="address-icon"></ng-icon>
+      <span class="address">Avenida Tiradentes, 4133 Guarulhos, SP</span>
+    </div>
+    <div class="contact-info">
+      <ng-icon name="bootstrapTelephoneFill" class="contact-icon"></ng-icon>
+      <span class="phone">+55 (11) 2404-6100 </span>
+    </div>
+  </div>
+
+  <div class="header-navigation">
+    <div class="logo">
+      <img src="assets/karvan_logo.svg" alt="Karvan Auto-Peças">
+    </div>
+
+    <nav class="navigation-links">
+      @for (item of items; track $index) {
+        <a routerLink="{{item.link}}" (click)="onSelect(item.name)"
+           [class.selected]="selected() === item.name">{{item.label}}</a>
+      }
+    </nav>
+
+    <ng-icon name="bootstrapList" class="menu-icon" (click)="toggleMenu()"></ng-icon>
+  </div>
+</div>
+
+<div class="side-menu" [class.open]="menuOpen">
+  <div class="side-menu-header">
+    <ng-icon name="bootstrapX" class="close-icon" (click)="toggleMenu()"></ng-icon>
+  </div>
+  <nav class="side-menu-links">
+    @for (item of items; track $index) {
+      <a routerLink="{{item.link}}" (click)="onSelect(item.name); toggleMenu()"
+         [class.selected]="selected() === item.name">{{item.label}}</a>
+    }
+  </nav>
+</div>

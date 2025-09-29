@@ -22,7 +22,7 @@ export const routes: Routes = [
         component: Products
     },
     {
-        path: 'vagas',
+        path: 'trabalhe-conosco',
         component: Careers
     },
     {
