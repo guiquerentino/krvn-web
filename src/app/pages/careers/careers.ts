@@ -1,17 +1,21 @@
 import { Component } from '@angular/core';
+import { HttpClient, HttpClientModule, provideHttpClient } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-careers',
-  imports: [],
+  standalone: true,
+  imports: [FormsModule, HttpClientModule],
   templateUrl: './careers.html',
-  styleUrl: './careers.css'
+  styleUrls: ['./careers.css']
 })
 export class Careers {
   selectedFile: File | null = null;
   fileName: string = 'Seu currículo';
   fileSize: string = '';
+  apiUrl = 'https://karvan.com.br/api/sendmail'; 
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
@@ -42,4 +46,17 @@ export class Careers {
     return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
   }
 
+  submitForm(): void {
+    const formElement = document.querySelector('form.careers-form') as HTMLFormElement;
+    const formData = new FormData(formElement);
+
+    if (this.selectedFile) {
+      formData.append('arquivo', this.selectedFile, this.selectedFile.name);
+    }
+
+    this.http.post(this.apiUrl, formData, { responseType: 'text' }).subscribe({
+      next: (res) => alert(res),
+      error: (err) => alert('Erro ao enviar: ' + err.error)
+    });
+  }
 }

@@ -2,7 +2,7 @@
   <h1 class="main-title">TRABALHE CONOSCO</h1>
 
   <div class="careers-form-wrapper">
-    <form class="careers-form">
+    <form class="careers-form" (submit)="submitForm()">
 
       <div class="form-group">
         <input type="text" id="name" name="name" required placeholder="Seu Nome">
@@ -17,27 +17,29 @@
       </div>
 
       <div class="form-group">
-        
+
         @if (!selectedFile) {
-          <label for="resume-upload" class="file-input-label">
-            <span>Seu currículo</span>
-            <span class="select-button">Selecionar</span>
-          </label>
+        <label for="resume-upload" class="file-input-label">
+          <span>Seu currículo</span>
+          <span class="select-button">Selecionar</span>
+        </label>
         }
 
         @if (selectedFile) {
-          <div class="file-info-display">
-            <div class="file-details">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-file-earmark-text-fill file-icon" viewBox="0 0 16 16">
-                <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM4.5 9a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1h-7zM4.5 11a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1h-7zM4.5 13a.5.5 0 0 1 0-1h4a.5.5 0 0 1 0 1h-4z"/>
-              </svg>
-              <div class="file-metadata">
-                <span class="file-name">{{ fileName }}</span>
-                <span class="file-size">{{ fileSize }}</span>
-              </div>
+        <div class="file-info-display">
+          <div class="file-details">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+              class="bi bi-file-earmark-text-fill file-icon" viewBox="0 0 16 16">
+              <path
+                d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM4.5 9a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1h-7zM4.5 11a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1h-7zM4.5 13a.5.5 0 0 1 0-1h4a.5.5 0 0 1 0 1h-4z" />
+            </svg>
+            <div class="file-metadata">
+              <span class="file-name">{{ fileName }}</span>
+              <span class="file-size">{{ fileSize }}</span>
             </div>
-            <button type="button" (click)="removeFile()" class="remove-button">Remover</button>
           </div>
+          <button type="button" (click)="removeFile()" class="remove-button">Remover</button>
+        </div>
         }
 
         <input type="file" id="resume-upload" class="file-input" accept=".pdf,.docx" (change)="onFileSelected($event)">
