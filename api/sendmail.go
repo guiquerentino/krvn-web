@@ -31,9 +31,9 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	nome := r.FormValue("nome")
+	nome := r.FormValue("name")
 	emailPessoa := r.FormValue("email")
-	mensagem := r.FormValue("mensagem")
+	mensagem := r.FormValue("message")
 
 	e := email.NewEmail()
 	from := os.Getenv("SMTP_USER")
