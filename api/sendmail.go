@@ -16,19 +16,15 @@ import (
 )
 
 var (
-	// Limite de requisições por IP (simples)
 	rateLimit       = make(map[string]time.Time)
 	rateLimitWindow = 10 * time.Second
-
-	// Validação de e-mail
-	emailRegex = regexp.MustCompile(`^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$`)
-
-	// Arquivos permitidos
-	allowedExt = map[string]bool{
+	emailRegex      = regexp.MustCompile(`^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$`)
+	allowedExt      = map[string]bool{
 		".pdf":  true,
 		".doc":  true,
 		".docx": true,
 	}
+	maxFileSize int64 = 30 << 20 // 30 MB
 )
 
 func Handler(w http.ResponseWriter, r *http.Request) {
@@ -54,10 +50,10 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 	}
 	rateLimit[ip] = time.Now()
 
-	// Limitar tamanho total do corpo (10MB)
-	r.Body = http.MaxBytesReader(w, r.Body, 10<<20)
+	// Limitar corpo total do request para 30MB
+	r.Body = http.MaxBytesReader(w, r.Body, maxFileSize)
 
-	err := r.ParseMultipartForm(10 << 20)
+	err := r.ParseMultipartForm(maxFileSize)
 	if err != nil {
 		http.Error(w, "Erro ao ler formulário", http.StatusBadRequest)
 		return
@@ -96,13 +92,18 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 
+		if header.Size > maxFileSize {
+			http.Error(w, "Arquivo maior que 30MB", http.StatusBadRequest)
+			return
+		}
+
 		data, err := io.ReadAll(arquivo)
 		if err != nil {
 			http.Error(w, "Erro ao ler arquivo", http.StatusInternalServerError)
 			return
 		}
 
-		e.Attach(bytesReader(data), header.Filename, header.Header.Get("Content-Type"))
+		e.Attach(bytes.NewReader(data), header.Filename, header.Header.Get("Content-Type"))
 		e.Subject = fmt.Sprintf("[CURRÍCULO RECEBIDO] - %s - %s", nome, emailPessoa)
 	}
 
@@ -125,14 +126,12 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintln(w, "E-mail enviado com sucesso")
 }
 
-// Sanitiza entradas para evitar header injection e caracteres de controle
 func sanitizeInput(input string) string {
 	input = strings.ReplaceAll(input, "\r", "")
 	input = strings.ReplaceAll(input, "\n", "")
 	return strings.TrimSpace(input)
 }
 
-// Verifica se a extensão do arquivo é permitida
 func isAllowedFile(filename string) bool {
 	ext := strings.ToLower(getFileExt(filename))
 	return allowedExt[ext]
@@ -143,9 +142,4 @@ func getFileExt(filename string) string {
 		return filename[dot:]
 	}
 	return ""
-}
-
-// Gera um *bytes.Reader a partir do conteúdo do arquivo
-func bytesReader(data []byte) *bytes.Reader {
-	return bytes.NewReader(data)
 }
