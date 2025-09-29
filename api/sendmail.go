@@ -2,7 +2,6 @@ package handler
 
 import (
 	"bytes"
-	"crypto/tls"
 	"fmt"
 	"io"
 	"log"
@@ -139,13 +138,8 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 	port := os.Getenv("SMTP_PORT")
 	addr := host + ":" + port
 
-	tlsconfig := &tls.Config{
-		InsecureSkipVerify: false,
-		ServerName:         host,
-	}
-
 	log.Println("Enviando e-mail para:", to)
-	err = e.SendWithTLS(addr, smtp.PlainAuth("", from, pass, host), tlsconfig)
+	err = e.Send(addr, smtp.PlainAuth("", from, pass, host))
 	if err != nil {
 		log.Println("Erro ao enviar e-mail:", err)
 		http.Error(w, "Erro ao enviar e-mail", http.StatusInternalServerError)
