@@ -38,7 +38,7 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 	e := email.NewEmail()
 	from := os.Getenv("SMTP_USER")
 	pass := os.Getenv("SMTP_PASS")
-	to := os.Getenv("SMTP_USER")
+	to := os.Getenv("SMTP_TO")
 
 	e.From = from
 	e.To = []string{to}
