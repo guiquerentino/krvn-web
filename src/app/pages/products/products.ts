@@ -10,6 +10,7 @@ import {
   bootstrapFilterCircleFill, 
   bootstrapWhatsapp 
 } from '@ng-icons/bootstrap-icons';
+import { Constants } from '../../utils/constants';
 
 @Component({
   selector: 'app-products',
@@ -32,5 +33,10 @@ import {
 export class Products {
 
   constructor() { }
+
+ redirectToWhatsApp() {
+    window.open(`https://wa.me/${Constants.WHATSAPP_NUMBER}?text=${encodeURIComponent(Constants.WHATSAPP_MESSAGE)}`, '_blank');
+  }
+
 
 }
