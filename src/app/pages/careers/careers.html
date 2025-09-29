@@ -17,16 +17,12 @@
       </div>
 
       <div class="form-group">
-
-        @if (!selectedFile) {
-        <label for="resume-upload" class="file-input-label">
+        <label *ngIf="!selectedFile" for="resume-upload" class="file-input-label">
           <span>Seu currículo</span>
           <span class="select-button">Selecionar</span>
         </label>
-        }
 
-        @if (selectedFile) {
-        <div class="file-info-display">
+        <div *ngIf="selectedFile" class="file-info-display">
           <div class="file-details">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
               class="bi bi-file-earmark-text-fill file-icon" viewBox="0 0 16 16">
@@ -40,12 +36,17 @@
           </div>
           <button type="button" (click)="removeFile()" class="remove-button">Remover</button>
         </div>
-        }
 
         <input type="file" id="resume-upload" class="file-input" accept=".pdf,.docx" (change)="onFileSelected($event)">
       </div>
 
-      <button type="submit" class="submit-button">Enviar Currículo</button>
+      <button type="submit" class="submit-button" [disabled]="sending">
+        {{ sending ? 'Enviando...' : 'Enviar Currículo' }}
+      </button>
+
+      <div class="form-message" *ngIf="messageText" [ngClass]="messageType">
+        {{ messageText }}
+      </div>
 
     </form>
   </div>
