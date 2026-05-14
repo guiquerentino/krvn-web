@@ -1,0 +1,97 @@
+@if (isVisible()) {
+  <div class="fraud-alert-backdrop" aria-hidden="true"></div>
+
+  <section
+    #dialog
+    class="fraud-alert"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="fraud-alert-title"
+    aria-describedby="fraud-alert-description"
+    tabindex="-1"
+    (keydown)="trapFocus($event)"
+  >
+    <button
+      class="fraud-alert__close"
+      type="button"
+      aria-label="Fechar aviso de segurança"
+      (click)="dismiss()"
+    >
+      <ng-icon name="bootstrapX" aria-hidden="true"></ng-icon>
+    </button>
+
+    <header class="fraud-alert__header">
+      <span class="fraud-alert__icon" aria-hidden="true">
+        <ng-icon name="bootstrapShieldFillExclamation"></ng-icon>
+      </span>
+      <div>
+        <p class="fraud-alert__eyebrow">Aviso importante de segurança</p>
+        <h2 id="fraud-alert-title">Cuidado com golpes usando o nome da Karvan</h2>
+      </div>
+    </header>
+
+    <div id="fraud-alert-description" class="fraud-alert__body">
+      <p>
+        Pessoas mal-intencionadas podem se passar pela Karvan para aplicar golpes. Antes de
+        negociar, pagar ou compartilhar dados, confirme se o atendimento está sendo feito pelos
+        nossos canais oficiais.
+      </p>
+      <p>
+        Verifique sempre o WhatsApp, o telefone e o endereço da loja. Se qualquer informação for
+        diferente, interrompa o contato e fale conosco pelos canais abaixo.
+      </p>
+    </div>
+
+    <dl class="fraud-alert__contacts" aria-label="Canais oficiais da Karvan">
+      <div class="fraud-alert__contact-item">
+        <dt>
+          <ng-icon name="bootstrapWhatsapp" aria-hidden="true"></ng-icon>
+          WhatsApp oficial
+        </dt>
+        <dd>
+          <a [href]="contacts.whatsappUrl" target="_blank" rel="noopener noreferrer">
+            {{ contacts.whatsappDisplay }}
+          </a>
+        </dd>
+      </div>
+
+      <div class="fraud-alert__contact-item">
+        <dt>
+          <ng-icon name="bootstrapTelephoneFill" aria-hidden="true"></ng-icon>
+          Telefone oficial
+        </dt>
+        <dd>
+          <a [href]="contacts.phoneHref">{{ contacts.phoneDisplay }}</a>
+        </dd>
+      </div>
+
+      <div class="fraud-alert__contact-item fraud-alert__contact-item--wide">
+        <dt>
+          <ng-icon name="bootstrapGeoAltFill" aria-hidden="true"></ng-icon>
+          Endereço da loja
+        </dt>
+        <dd>{{ contacts.address }}</dd>
+      </div>
+    </dl>
+
+    <p class="fraud-alert__note">
+      A Karvan não recomenda pagamentos para contatos, perfis ou contas que não possam ser
+      confirmados pelos canais oficiais.
+    </p>
+
+    <footer class="fraud-alert__actions">
+      <a
+        class="fraud-alert__whatsapp"
+        [href]="contacts.whatsappUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <ng-icon name="bootstrapWhatsapp" aria-hidden="true"></ng-icon>
+        Falar no WhatsApp oficial
+      </a>
+      <button class="fraud-alert__confirm" type="button" (click)="confirmRead()">
+        Entendi, vou verificar
+      </button>
+    </footer>
+  </section>
+}

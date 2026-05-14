@@ -17,6 +17,6 @@ export class WhatsappFabComponent implements OnInit {
   
 
   ngOnInit(): void {
-      this.whatsappUrl = `https://wa.me/${Constants.WHATSAPP_NUMBER}?text=${Constants.WHATSAPP_MESSAGE}`;
+      this.whatsappUrl = Constants.whatsappUrl();
   }
 }
